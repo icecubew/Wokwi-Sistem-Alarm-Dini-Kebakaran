@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -11.14, "left": -181.84, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -188.53,
+      "left": 108.42,
+      "rotate": 90,
+      "attrs": { "temperature": "16.2", "humidity": "41" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -120.38,
+      "left": -239.73,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "esp:GND.1", "gray", [ "h-89.27", "v229.23" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "h-80.6", "v2.57" ] ],
+    [ "dht1:SDA", "esp:D4", "#8f4814", [ "h-111.79", "v224.51" ] ],
+    [ "bz1:1", "esp:GND.2", "orange", [ "v0" ] ],
+    [ "bz1:2", "esp:D22", "gold", [ "v2.65", "h187.31", "v56.59" ] ]
+  ],
+  "dependencies": {}
+}
